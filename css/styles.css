@@ -302,12 +302,6 @@ section{
 .social-link a:hover{
     box-shadow: 3px 3px 10px  rgba(0,0,0,0.4);
 }
-
-#about {
-    height:100vh;
-    width:100vw;
-    background-color: rosybrown;
-}
 .home .wrapper.static {
     position: fixed;
     height: 100vh;
@@ -358,7 +352,7 @@ section{
     box-shadow: 3px 3px 10px  rgba(0,0,0,0.4);
 }
 
-#about {
+.sections {
     height:100vh;
     width:80%;
     margin-right: 0;
@@ -373,7 +367,7 @@ h1{
     font-weight: 700;
     color: #75D8C6;
     font-size: 40px;
-    padding-bottom: 10px !important;
+    padding-bottom: 30px !important;
 }
 p{
     color: black;
@@ -385,4 +379,43 @@ p{
     height: 100vh;
     width: 20%;
     background:#72C9B9;
+}
+.exp {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 90%;
+    
+    color:black;
+}
+.exp_Year {
+    font-size: 18px;
+}
+h2{
+    font-size: 28px;
+    font-weight: 500;
+    color:black;
+    margin-bottom: 5px !important;
+}
+
+h5{
+    color: black;
+}
+#section--3 ul {
+    padding-left: 40px !important;
+}
+#section--3 li{
+    font-size: 14px;
+    color:black;
+    line-height: 2;
+}
+#section--3 li::before {
+    content: "";
+    position: relative;
+    height: 8px;
+    width: 8px;
+    background: #72C9B9;
+    display: inline-block;
+    margin-right: 10px;
 }
