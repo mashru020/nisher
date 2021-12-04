@@ -276,7 +276,6 @@ section{
 }
 .nav a:hover{
     text-shadow: 2px 2px rgba(0,0,0,0.2);
-    transform: translateY(-2px);
 }
 
 .social-link ul{
