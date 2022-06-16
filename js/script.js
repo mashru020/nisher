@@ -81,3 +81,12 @@ $(function() {
     nav.classList.add('static');
   }
 });
+
+
+document.addEventListener('keydown',function(e) {
+  setTimeout(function() {
+    const navHeight = document.querySelector('#nav').getBoundingClientRect().top;
+    console.log(navHeight);
+},1000) ;
+
+})
