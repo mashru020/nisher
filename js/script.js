@@ -1,8 +1,14 @@
 'use strict'
 const nav = document.querySelector('.wrapper');
 const menu = document.querySelector('.nav__links');
-// console.log(menu);
+const avatar = document.getElementById('avatar');
 
+avatar.addEventListener('click',(e)=>{
+  nav.classList.remove('static');
+  curPage = 0;
+  e.preventDefault();
+  document.getElementById('nav').scrollIntoView({ behavior: 'smooth' });
+})
 menu.addEventListener('click', function () {
   nav.classList.add('static');
 });
@@ -12,7 +18,7 @@ document.querySelector('.nav__links').addEventListener('click', function (e) {
 
   // Matching strategy
   if (e.target.classList.contains('nav__link')) {
-    console.log(e);
+    curPage= Number(e.target.hash.slice(-1));
     e.preventDefault();
     const id = e.target.getAttribute('href');
     document.querySelector(id).scrollIntoView({ behavior: 'smooth' });
@@ -22,16 +28,13 @@ document.querySelector('.nav__links').addEventListener('click', function (e) {
 const $body = (window.opera) ? (document.compatMode == "CSS1Compat" ? $('html') : $('body')) : $('html,body'),
   $section = $('section');
 
-let numOfPages = $section.length - 1; //取得section的數量
-console.log($section);
-let curPage = 1; //初始頁
+let numOfPages = $section.length - 1;
+let curPage = 0; 
 let scrollLock = false;
 
 function scrollPage() {
-  //滑鼠滾動
   $(document).on("mousewheel DOMMouseScroll", function (e) {
     if (scrollLock) return;
-    console.log(e.originalEvent.wheelDelta, e.originalEvent.detail);
     if (e.originalEvent.wheelDelta > 0 || e.originalEvent.detail < 0) {
 
       if(curPage === 1){
@@ -47,13 +50,23 @@ function scrollPage() {
       navigateDown();
     }
   });
-  // $(document).on("keydown", function (e) {
-  //   if (scrollLock) return;
-  //   if (e.which === 38)
-  //     navigateUp();
-  //   else if (e.which === 40)
-  //     navigateDown();
-  // });
+  $(document).on("keydown", function (e) {
+    if (scrollLock) return;
+    if (e.which === 38){
+      if(curPage === 1){
+        setTimeout(()=>{
+          nav.classList.remove('static');
+        }, 900);
+        navigateUp();
+      }
+      else{
+        navigateUp();
+      }
+    }
+      
+    else if (e.which === 40)
+      navigateDown();
+  });
 }
 
 function pagination() {
